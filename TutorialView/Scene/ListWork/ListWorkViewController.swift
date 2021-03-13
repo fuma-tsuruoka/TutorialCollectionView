@@ -10,7 +10,14 @@ import UIKit
 
 class ListWorkViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var tableView: UITableView!
     let TODO = ["牛乳を買う", "掃除をする", "アプリ開発の勉強をする"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.register(UINib(nibName: "CommonTableViewCellWithXib", bundle: nil), forCellReuseIdentifier: "CommonTableViewCellWithXib")
+
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return TODO.count
@@ -18,15 +25,18 @@ class ListWorkViewController: UIViewController ,UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得する
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        // セルに表示する値を設定する
-        cell.textLabel!.text = TODO[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CommonTableViewCellWithXib") as? CommonTableViewCellWithXib {
+            cell.cellName.text = TODO[indexPath.row]
+            let rowNo = indexPath.row + 1
+            cell.taskNo.text = rowNo.description
+            return cell
+        }
         
-        return cell
+        return UITableViewCell()
     }
     
+    
+    
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }    
+
 }
