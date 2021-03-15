@@ -1,5 +1,5 @@
 //
-//  CommonTableViewCell.swift
+//  ScrollWorkViewController.swift
 //  TutorialView
 //
 //  Created by Fuma Tsuruoka on 2021/03/13.

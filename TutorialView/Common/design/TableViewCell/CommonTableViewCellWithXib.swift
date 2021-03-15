@@ -12,6 +12,7 @@ class CommonTableViewCellWithXib: UITableViewCell {
 
     @IBOutlet weak var cellName: UILabel!
     @IBOutlet weak var taskNo: UILabel!
+    @IBOutlet weak var openViewHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +20,7 @@ class CommonTableViewCellWithXib: UITableViewCell {
         self.createCell()
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
