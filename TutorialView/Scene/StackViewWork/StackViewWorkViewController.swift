@@ -31,6 +31,8 @@ class StackViewWorkViewController: UIViewController{
             }else{
                 textView.text = textTmp
             }
+            
+            textView.isHidden = !textView.isHidden
 
         }
     }
